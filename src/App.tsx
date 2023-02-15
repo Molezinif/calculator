@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+
+interface Operator {
+  operators: '+' | '-' | "*" | "/";
+} 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Calculator">
+      <div>{/*displayValue*/}</div>
+      <button onClick={()=> {}}>7</button>
+      <button onClick={()=> {}}>8</button>
+      <button onClick={()=> {}}>9</button>
     </div>
   );
 }
