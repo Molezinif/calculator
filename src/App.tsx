@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import './App.css';
-
+import Button from "./components/Button";
+import CalculatorBase from "./components/Calculator/calculatorBase";
+import CalculatorOutput from "./components/Calculator/calculatorOutput";
+import {Paper, Container, styled, Grid} from "@mui/material";
 type Operator =  '+' | '-' | "*" | "/";
+
+
 
 const Calculator = () =>{
   const [displayValue, setDisplayValue] = useState('0');
@@ -9,28 +13,15 @@ const Calculator = () =>{
 
 function App() {
   return (
-    <div className="Calculator">
-      <div>{/*displayValue*/}</div>
-      <button onClick={()=> {}}>7</button>
-      <button onClick={()=> {}}>8</button>
-      <button onClick={()=> {}}>9</button>
-      <button onClick={()=> {}}>/</button>
-      <br />
-      <button onClick={()=> {}}>4</button>
-      <button onClick={()=> {}}>5</button>
-      <button onClick={()=> {}}>6</button>
-      <button onClick={()=> {}}>*</button>
-      <br />
-      <button onClick={()=> {}}>1</button>
-      <button onClick={()=> {}}>2</button>
-      <button onClick={()=> {}}>3</button>
-      <button onClick={()=> {}}>-</button>
-      <br />
-      <button onClick={()=> {}}>0</button>
-      <button onClick={()=> {}}>+</button>
-      <button onClick={()=> {}}>=</button>
-      <button onClick={()=> {}}>C</button>
-    </div>
+    <Container maxWidth="sm">
+      <CalculatorBase elevation={3}>
+        <Grid container spacing={1}>
+          <Grid item xs = {12}>
+            <CalculatorOutput>0</CalculatorOutput>
+          </Grid>
+        </Grid>
+      </CalculatorBase>
+    </Container>
   );
 }
 
