@@ -7,10 +7,10 @@ const CalculatorOutput = styled('div')(({ theme }) => ({
     textAlign: 'right',
     height: '3em',
     fontSize: '3em',
-    overflow: 'visible',
+    overflow: 'hidden',
     padding: theme.spacing(2),
     marginTop: theme.spacing(2),
-    borderRadius: 16,
+    
   }));
 
   export default CalculatorOutput;
