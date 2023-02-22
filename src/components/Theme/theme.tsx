@@ -1,6 +1,4 @@
-import { createTheme, Typography } from '@mui/material'
-import CssBaseline from '@mui/material/CssBaseline'
-import react from 'react'
+import { createTheme } from '@mui/material'
 
 const theme = createTheme({
 	palette: {
