@@ -3,17 +3,24 @@ import React from 'react'
 import styled from 'styled-components'
 
 interface ButtonOperatorProps {
-	selectedOperation: string;
-	operation: string;
-	selectOperation: (value: string) => void;
+  selectedOperation: string
+  operation: string
+  selectOperation: (value: string) => void
 }
 
-const Button = styled(MuiButton)<{ selected: boolean }>((props) => ({ borderColor: props.selected ? '#fff' : 'rgba(127,255,0, 0.5)', }))
+const Button = styled(MuiButton)<{ selected: boolean }>((props) => ({
+	borderColor: props.selected ? '#fff' : 'rgba(127,255,0, 0.5)',
+}))
 
-export const ButtonOperatorGrid = ({ selectedOperation, operation, selectOperation }: ButtonOperatorProps) => {
+export const ButtonOperatorGrid = ({
+	selectedOperation,
+	operation,
+	selectOperation,
+}: ButtonOperatorProps) => {
 	return (
 		<Grid item xs={3}>
-			<Button fullWidth
+			<Button
+				fullWidth
 				variant="outlined"
 				sx={{ backgroundColor: 'rgba(127,255,0, 0.5)' }}
 				onClick={() => selectOperation(operation)}

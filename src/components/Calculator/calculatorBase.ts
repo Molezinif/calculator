@@ -1,4 +1,4 @@
-import {Paper, styled} from '@mui/material'
+import { Paper, styled } from '@mui/material'
 
 const CalculatorBase = styled(Paper)(({ theme }) => ({
 	padding: theme.spacing(3),

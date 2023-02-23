@@ -4,80 +4,52 @@ import CalculatorOutput from './components/Calculator/calculatorOutput'
 import { Container, Grid, Button } from '@mui/material'
 import { ButtonDigitGrid } from './components/Button/ButtonDigitGrid'
 import { ButtonOperatorGrid } from './components/Button/ButtonOperatorGrid'
-
+import { percentageCalculation, calculate } from './utilities/index'
 
 function App() {
 	const [previousValue, setPreviousValue] = useState('')
 	const [currentValue, setCurrentValue] = useState('0')
 	const [operation, setOperation] = useState('')
 	const [overwrite, setOverwrite] = useState(true)
+	const value = calculate(previousValue, operation, currentValue)
 
-	const equals = () => {
-		const val = calculate()
-		setCurrentValue(`${val}`)
+	const equals = useCallback(() => {
+		setCurrentValue(`${value}`)
 		setPreviousValue('')
 		setOperation('')
 		setOverwrite(true)
-	}
+	}, [setPreviousValue, setOperation, setOverwrite, value])
 
-	const calculate = () => {
-		if (!previousValue || !operation) return currentValue
-
-		const curr = parseFloat(currentValue)
-		const prev = parseFloat(previousValue)
-
-		console.log('curr', curr)
-		console.log('prev', prev)
-		let result
-		switch (operation) {
-		case '÷':
-			result = prev / curr
-			break
-		case '*':
-			result = prev * curr
-			break
-		case '-':
-			result = prev - curr
-			break
-		case '+':
-			result = prev + curr
-			break
-		}
-		console.log('resultado', result)
-		return result
-	}
-
-	const clear = () => {
+	const clear = useCallback(() => {
 		setPreviousValue('')
 		setOperation('')
 		setCurrentValue('0')
 		setOverwrite(true)
-	}
+	}, [setPreviousValue, setOperation, setCurrentValue, setOverwrite])
 
-	const del = () => {
+	const del = useCallback(() => {
 		setCurrentValue('0')
 		setOverwrite(true)
-	}
+	},[setCurrentValue, setOverwrite])
 
-	const teste1 = (currentValue: string) => {
-		const curr = parseFloat(currentValue)
-		return (curr / 100).toString()
-	}
-	/* const teste = useMemo(()=>{    const curr = parseFloat(currentValue)    return (curr/100).toString()  }, [currentValue]) */
+	/* const teste = useMemo(()=>{
+    const curr = parseFloat(currentValue)
+    return (curr/100).toString()
+  }, [currentValue]) */
 
 	const percent = useCallback(() => {
-		return setCurrentValue(teste1(currentValue))
+		return setCurrentValue(percentageCalculation(currentValue))
 	}, [setCurrentValue, currentValue])
 
 	const selectOperation = (x: string) => {
 		if (previousValue) {
-			const val = calculate()
-			setCurrentValue(`${val}`)
-			setPreviousValue(`${val}`)
+			setCurrentValue(`${value}`)
+			setPreviousValue(`${value}`)
 		} else {
 			setPreviousValue(currentValue)
 		}
 		setOperation(x)
+		console.log(x)
 		setOverwrite(true)
 	}
 
@@ -161,7 +133,7 @@ function App() {
 
 						<Grid item xs={3}>
 							<Button fullWidth variant="contained" onClick={equals}>
-								=
+                =
 							</Button>
 						</Grid>
 					</Grid>
