@@ -6,7 +6,8 @@ Calculadora feita em react e typescript para o estudo de:
 * states e props;
 * MUI;
 * Css;
-* Padronização de código;
+* Padronização de código com eslint e prettier; 
+* UseCallback e UseMemo;
 
 ## :books: Funcionalidades
 * <b>Funcionalidade </b>: 
@@ -23,3 +24,25 @@ Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando 
 ```
 git clone https://github.com/Molezinif/calculator.git
 ```
+
+<br>
+
+Após isso instale os seguintes pacotes:
+
+* Node_modules
+* ESlint 
+* Prettier
+* ESLint with Prettier rules
+
+```
+npm install
+npm init @eslint/config
+npm install --save-dev --save-exact prettier
+npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+## :ok_hand: Extensões Recomendadas
+
+* ESlint
+* Prettier
+* Prettier ESlint

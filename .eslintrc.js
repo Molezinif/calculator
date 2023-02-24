@@ -11,11 +11,13 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'prettier'],
+	plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
 	rules: {
 		indent: ['error', 'tab'],
 		'linebreak-style': ['error', 'windows'],
 		quotes: ['error', 'single'],
-		semi: ['error', 'never']
+		semi: ['error', 'never'],
+		'react-hooks/rules-of-hooks': 'warn',
+		'react-hooks/exhaustive-deps': 'warn',
 	},
 }
